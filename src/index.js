@@ -8,6 +8,7 @@ import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
 
 import Home from './components/Home';
 import LoggedIn from './components/HomeLoggedIn';
+import Game from './components/Game';
 
 ReactDOM.render(
     <Router>
@@ -15,7 +16,7 @@ ReactDOM.render(
         <Route path='/' component={App}/>
         <Route exact path='/' component={Home}/>
         <Route path='/loggedin' component={LoggedIn}/>
-        {/* <Route path='/contact' component={Contact}/> */}
+        <Route path='/game' component={Game}/>
     </div>
 </Router>, document.getElementById('root'));
 

@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import '../App.css';
+import '../Home.css';
 
 export default class About extends Component {
     render() {
         return (
-            <main>
+            <main className="home">
                 <section className="body">
                     <iframe src="https://www.youtube.com/embed/OJk_HUyzZNk" frameborder="0" allowfullscreen></iframe>
                     <article>
