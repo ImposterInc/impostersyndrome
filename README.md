@@ -1,6 +1,13 @@
 # Imposter Syndrome
 
-This is a game where four players in a five player game have to guess who the chat bot is in their chat conversation
+This is a game where four players in a five player game have to guess who the chat bot is in their chat conversation.
+
+# Contributors
+
+* [Tristan Gilford](https://www.github.com/tristannica)
+* [Nick Fallon](https://www.github.com/nickpfallon)
+* [Devin Gray](https://www.github.com/devingray13)
+* [Derek Kramer](https://www.github.com/derekkramer)
 
 # License
 
