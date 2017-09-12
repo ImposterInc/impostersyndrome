@@ -1,6 +1,6 @@
 # Imposter Syndrome
 
-> This is a game where four players in a five player game have to guess who the chat bot is in their chat conversation
+This is a game where four players in a five player game have to guess who the chat bot is in their chat conversation
 
 # License
 
