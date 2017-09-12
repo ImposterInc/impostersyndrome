@@ -1,6 +1,6 @@
 # Imposter Syndrome
 
-This is a game where four players in a five player game have to guess who the chat bot is in their chat conversation.
+You've woken up with the pestering feeling that you're in a simulation, but if you go telling everyone without proof, they'll think you're crazy! You'll be in a chat with four other players, three are your friends, the fourth is the chatbot that you need to identify to prove your reality has been compromised. Each round you'll be able to chat with the other players, at the end placing tokens on who you think the chatbot is and one other player who you know the chatbot isn't. If you're feeling confident, you can guess the chatbot for a huge point bonus, but if you don't have enough points to pay the penalty, you're OUT! Have fun proving your reality!
 
 # Contributors
 
