@@ -50,7 +50,24 @@ article {
   padding: 0 3vw; }
   .sidebar form {
     display: flex;
-    flex-direction: column;
+    justify-content: space-between;
     margin: 4vh 0; }
+    .sidebar form button {
+      width: 45%; }
+  .sidebar form.signin {
+    flex-direction: column; }
+    .sidebar form.signin button {
+      width: 100%; }
   .sidebar input {
     margin-bottom: 2vh; }
+
+.leaderboard nav {
+  display: flex; }
+  .leaderboard nav button {
+    width: 50%; }
+
+.leaderboard ol {
+  padding: 1vh 2vw; }
+  .leaderboard ol li {
+    display: flex;
+    justify-content: space-between; }

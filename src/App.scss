@@ -64,11 +64,42 @@ article {
 
     form {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
         margin: 4vh 0;
+
+        button {
+            width: 45%;
+        }
+    }
+
+    form.signin {
+        flex-direction: column;
+
+        button {
+            width: 100%;
+        }
     }
 
     input {
         margin-bottom: 2vh;
+    }
+}
+
+.leaderboard {
+    nav {
+        display: flex;
+
+        button {
+            width: 50%;
+        }
+    }
+
+    ol {
+        padding: 1vh 2vw;
+
+        li {
+            display: flex;
+            justify-content: space-between;
+        }
     }
 }

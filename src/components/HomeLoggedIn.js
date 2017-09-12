@@ -13,14 +13,33 @@ export default class About extends Component {
                     </article>
                 </section>
                 <section className="sidebar">
-                    <h2>Sign Up</h2>
-                    <form className="signin">
-                        <input type="text" placeholder="Username"></input>
-                        <input type="text" placeholder="Email"></input>
-                        <input type="text" placeholder="Password"></input>
-                        <input type="text" placeholder="Confirm Password"></input>
-                        <button type="submit">Sign Up</button>
+                    <form className="loggedin">
+                        <button type="submit">Play Game</button>
+                        <button type="submit">Spectate</button>
                     </form>
+                    <div className="leaderboard">
+                        <nav>
+                            <button>Leaderboard</button>
+                            <button>Friends</button>
+                        </nav>
+                        <ol>
+                            <li>
+                                <p>User 1</p><p>111</p>
+                            </li>
+                            <li>
+                                <p>User 2</p><p>222</p>
+                            </li>
+                            <li>
+                                <p>User 3</p><p>333</p>
+                            </li>
+                            <li>
+                                <p>User 4</p><p>444</p>
+                            </li>
+                            <li>
+                                <p>User 5</p><p>555</p>
+                            </li>
+                        </ol>
+                    </div>
                 </section>
             </main>
         );
