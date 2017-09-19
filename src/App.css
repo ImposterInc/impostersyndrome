@@ -14,9 +14,6 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 3vh 3vw; }
-  header form {
-    display: flex;
-    align-items: center; }
   header input {
     margin: 0 1vw; }
 
