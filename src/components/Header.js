@@ -1,6 +1,9 @@
 import React, {Component} from 'react';
 import '../App.css';
 
+const axios = require('axios');
+const jwt = require('jsonwebtoken');
+
 export default class Header extends Component {
     constructor(props){
         super(props);
@@ -21,6 +24,23 @@ export default class Header extends Component {
     handleSubmit(event){
         const { userEntry, passEntry } = this.state;
 
+        let form = {
+            userOrEmail: userEntry,
+            pass: passEntry
+        };
+
+        axios.post('http://localhost:3001/users', form)
+        .then((result) => {
+            if(result.data.status !== 'failure'){
+                let token = jwt.verify(result.data.data, process.env.REACT_APP_TOKEN);
+                console.log(token);
+
+                // localStorage.setItem('impostersyndrome', token);
+            }else{
+                console.log('failure');
+            }
+        });
+
         event.preventDefault();
     }
 
@@ -36,10 +56,9 @@ export default class Header extends Component {
     }
 }
 
-const Login = ({ handleChange, handleSubmit }) => <nav>
-        <form onSubmit={handleSubmit}>
-            <input type="text" name="userEntry" placeholder="Username" onChange={handleChange}></input>
-            <input type="password" name="passEntry" placeholder="Password" onChange={handleChange}></input>
-            <button type="submit">Log In</button>
-        </form>
-    </nav>
+const Login = ({ handleChange, handleSubmit }) =>
+    <form onSubmit={handleSubmit}>
+        <input type="text" name="userEntry" placeholder="Username" onChange={handleChange}></input>
+        <input type="password" name="passEntry" placeholder="Password" onChange={handleChange}></input>
+        <button type="submit">Log In</button>
+    </form>
