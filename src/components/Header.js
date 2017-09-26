@@ -30,14 +30,14 @@ export default class Header extends Component {
         };
 
         axios.post('http://localhost:3001/users', form)
-        .then((result) => {
-            if(result.data.status !== 'failure'){
-                let token = jwt.verify(result.data.data, process.env.REACT_APP_TOKEN);
-                console.log(token);
-
-                // localStorage.setItem('impostersyndrome', token);
+        .then(result => {
+            if(result.data.status === 'success'){
+                jwt.verify(result.data.data, process.env.REACT_APP_TOKEN, (err, decoded) => {
+                    console.log(decoded);
+                    localStorage.setItem('impostersyndrome', JSON.stringify(decoded));
+                });
             }else{
-                console.log('failure');
+                console.log(result.data);
             }
         });
 
