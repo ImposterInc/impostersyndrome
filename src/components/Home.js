@@ -2,7 +2,54 @@ import React, {Component} from 'react';
 import '../App.css';
 import '../Home.css';
 
+const axios = require('axios');
+const jwt = require('jsonwebtoken');
+
 export default class About extends Component {
+    constructor(props){
+        super(props);
+
+        this.state = {
+            userEntry: '',
+            emailEntry: '',
+            passEntry: '',
+            confirmPassEntry: ''
+        };
+
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleChange(event){
+        this.setState({ [event.target.name]: event.target.value });
+    }
+
+    handleSubmit(event){
+        const { userEntry, emailEntry, passEntry, confirmPassEntry } = this.state;
+
+        let form = {
+            user: userEntry,
+            email: emailEntry,
+            pass: passEntry,
+            confirmPass: confirmPassEntry
+        };
+
+        axios.post('http://localhost:3001/users/signup', form)
+        .then(result => {
+            if(result.data.status === 'success'){
+                jwt.verify(result.data.data, process.env.REACT_APP_TOKEN, (err, decoded) => {
+                    console.log(decoded);
+                    localStorage.setItem('impostersyndrome', JSON.stringify(decoded));
+                    window.location.href = '/';
+                });
+            }else{
+                console.log(result.data);
+            }
+        });
+
+        event.preventDefault();
+    }
+
     render() {
         return (
             <main className="home">
@@ -14,16 +61,21 @@ export default class About extends Component {
                     </article>
                 </section>
                 <section className="sidebar">
-                    <h2>Sign Up</h2>
-                    <form className="signin">
-                        <input type="text" placeholder="Username"></input>
-                        <input type="text" placeholder="Email"></input>
-                        <input type="text" placeholder="Password"></input>
-                        <input type="text" placeholder="Confirm Password"></input>
-                        <button type="submit">Sign Up</button>
-                    </form>
+                    <SignUp handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
                 </section>
             </main>
         );
     }
 }
+
+const SignUp = ({ handleChange, handleSubmit }) =>
+    <div>
+        <h2>Sign Up</h2>
+        <form className="signin" onSubmit={handleSubmit}>
+            <input type="text" name="userEntry" placeholder="Username" onChange={handleChange}></input>
+            <input type="text" name="emailEntry" placeholder="Email" onChange={handleChange}></input>
+            <input type="password" name="passEntry" placeholder="Password" onChange={handleChange}></input>
+            <input type="password" name="confirmPassEntry" placeholder="Confirm Password" onChange={handleChange}></input>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>

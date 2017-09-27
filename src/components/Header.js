@@ -35,6 +35,7 @@ export default class Header extends Component {
                 jwt.verify(result.data.data, process.env.REACT_APP_TOKEN, (err, decoded) => {
                     console.log(decoded);
                     localStorage.setItem('impostersyndrome', JSON.stringify(decoded));
+                    window.location.href = '/';
                 });
             }else{
                 console.log(result.data);
@@ -58,7 +59,7 @@ export default class Header extends Component {
 
 const Login = ({ handleChange, handleSubmit }) =>
     <form onSubmit={handleSubmit}>
-        <input type="text" name="userEntry" placeholder="Username" onChange={handleChange}></input>
+        <input type="text" name="userEntry" placeholder="Username or Email" onChange={handleChange}></input>
         <input type="password" name="passEntry" placeholder="Password" onChange={handleChange}></input>
         <button type="submit">Log In</button>
     </form>
