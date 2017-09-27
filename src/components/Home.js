@@ -13,7 +13,8 @@ export default class About extends Component {
             userEntry: '',
             emailEntry: '',
             passEntry: '',
-            confirmPassEntry: ''
+            confirmPassEntry: '',
+            error: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -31,8 +32,7 @@ export default class About extends Component {
             user: userEntry,
             email: emailEntry,
             pass: passEntry,
-            confirmPass: confirmPassEntry,
-            error: ''
+            confirmPass: confirmPassEntry
         };
 
         axios.post('http://localhost:3001/users/signup', form)
