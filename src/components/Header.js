@@ -10,7 +10,8 @@ export default class Header extends Component {
 
         this.state = {
             userEntry: '',
-            passEntry: ''
+            passEntry: '',
+            error: ''
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -39,6 +40,8 @@ export default class Header extends Component {
                 });
             }else{
                 console.log(result.data);
+
+                this.setState({ error: result.data.data.substr(7) });
             }
         });
 
@@ -50,7 +53,13 @@ export default class Header extends Component {
             <div className='page-header'>
                 <header>
                     <h1>Imposter Syndrome</h1>
-                    <Login handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+                    <div>
+                        {this.state.error
+                        ? <span className='error'>{this.state.error}</span>
+                        : null
+                        }
+                        <Login handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
+                    </div>
                 </header>
             </div>
         );

@@ -14,6 +14,13 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 3vh 3vw; }
+  header div {
+    display: flex;
+    align-items: center; }
+    header div .error {
+      color: red;
+      font-size: 2vh;
+      font-weight: bold; }
   header input {
     margin: 0 1vw; }
 
